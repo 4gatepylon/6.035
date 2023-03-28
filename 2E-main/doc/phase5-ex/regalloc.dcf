@@ -1,0 +1,28 @@
+int func(int x) {
+    return x;
+}
+
+void main() {
+    int a, b, c, d, e, f;
+    // a interferes with b, c, d, e
+    // b interferes with a, e
+    // c interferes with a, d, e
+    // d interferes with a, c, e
+    // e interferes with a, b, c, d, f
+    // f interferes with e
+    a = 0;
+    e = 0;
+
+    c = 0;
+    d = 0;
+    func(c);
+    func(d);
+
+    b = 0;
+    func(a);
+    func(b);
+
+    f = 0;
+    func(e);
+    func(f);
+}
